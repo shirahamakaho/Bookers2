@@ -1,8 +1,16 @@
 <!--投稿者のプロフィール-->
+<p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+<p><%= @book.user.name %></p>
+<p><%= @book.user.introduction%></p>
 
 <h1>Book detail</h1>
 
+<div>
 <p><%= @book.title %>
 </p>
 <p><%= @book.body %>
 </p>
+<% if @book.user == current_user %>
+<%= link_to "Destroy",book_path(@book.id),method: :delete %>
+<% end %>
+</div>

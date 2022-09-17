@@ -1,20 +1,5 @@
 <div>
-  <h2>User Info</h2>
-
-  <%= image_tag current_user.get_profile_image(100,100) %>
-  <p>name
-  <%= current_user.name %></p>
-  <p>introduction
-  <%= current_user.introduction %></p>
-  <%= link_to 'Edit',edit_user_path(current_user.id) %>
-
-  <%= form_with model:@newbook,url:books_path,method: :post do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field:title %>
-  <h4>Opinion</h4>
-  <%= f.text_area:body %><br>
-  <%= f.submit'Create Book' %>
-  <% end %>
+  <%= render'userinfo',user:@user,newbook:@newbook %>
 </div>
 
 <div>

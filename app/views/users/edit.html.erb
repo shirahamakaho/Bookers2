@@ -1,4 +1,15 @@
 <h2>User Info</h2>
+
+<% if @user.errors.any? %>
+<%= pluralize(@user.errors.count,"error") %>
+prohibited this obj from being saved:
+<ul>
+  <% @user.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= form_with model:@user,url:user_path,method: :patch do |f| %>
 <%= f.text_field:name %>
 <%= f.file_field:profile_image,accept:'image/*' %>

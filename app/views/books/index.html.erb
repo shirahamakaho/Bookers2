@@ -1,9 +1,18 @@
+<% if @book.errors.any? %>
+<%= pluralize(@book.errors.count,"error") %>
+prohibited this obj from being saved:
+<ul>
+  <% @book.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <div>
-  <%= render'layouts/userinfo',user:@user,newbook:@newbook %>
+  <%= render'layouts/userinfo',user:@user,book:@book %>
 </div>
 
 <div>
-
   <h1>Books#index</h1>
 
   <% @books.each do |book| %>
@@ -21,5 +30,4 @@
     </p>
   </div>
   <% end %>
-
 </div>
